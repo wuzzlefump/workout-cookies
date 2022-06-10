@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import { CookiesProvider } from 'react-cookie';
+import Layout from './components/Layout/Layout';
+import Home from './pages/Home/Home';
+import Food from './pages/Food/Food';
+import Weight from './pages/Weight/Weight';
+import Workout from './pages/Workout/Workout';
+import Motivation from './pages/Motivation/Motivation';
+import Model, {Provider} from "@expressive/mvc"
+
+type PossibleLocations = "home"|"food"|"weight"|"workout"|"motivation";
 
 function App() {
+
+  const possibleLocations = {
+    home:<Home/>,
+    food:<Food/>,
+    weight:<Weight/>,
+    workout:<Workout/>,
+    motivation:<Motivation/>
+  }
+  const [state, setState] =React.useState<PossibleLocations>("home")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CookiesProvider>
+        <Layout cheat={{nav:(x:PossibleLocations)=>setState(x)}} >
+          {
+            possibleLocations[state]
+          }
+        </Layout>
+    </CookiesProvider>
   );
 }
 
