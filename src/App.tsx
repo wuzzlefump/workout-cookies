@@ -5,6 +5,7 @@ import Home from './pages/Home/Home';
 import Food from './pages/Food/Food';
 import Weight from './pages/Weight/Weight';
 import Workout from './pages/Workout/Workout';
+import Metrics from "./pages/Metrics/Metrics";
 import Motivation from './pages/Motivation/Motivation';
 import Model, {Provider} from "@expressive/mvc"
 
@@ -17,7 +18,8 @@ function App() {
     food:<Food/>,
     weight:<Weight/>,
     workout:<Workout/>,
-    motivation:<Motivation/>
+    motivation:<Motivation/>,
+    metrics:<Metrics/>
   }
   const [state, setState] =React.useState<PossibleLocations>("home")
   return (

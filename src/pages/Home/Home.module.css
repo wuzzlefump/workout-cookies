@@ -1,5 +1,5 @@
 .newUserCard{
-    margin-top: 20vh;
+    margin-top: 10vh;
     background-color: whitesmoke;
     min-width: 400px;
     text-align: center;
@@ -19,7 +19,7 @@
     border-width: 1px;
 }
 .currentUserCard{
-    margin-top: 20vh;
+    margin-top: 10vh;
     background-color: whitesmoke;
     min-width: 400px;
     text-align: center;

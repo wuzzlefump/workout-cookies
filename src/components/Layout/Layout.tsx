@@ -5,13 +5,14 @@ import styles from "./Layout.module.css"
 export default function Layout(props:{children:any, cheat:any}){
     const{children} = props
     type linkTypes = {label:string;
-    path: "home"|"food"|"weight"|"workout"|"motivation"}
+    path: "home"|"food"|"weight"|"workout"|"motivation"|"metrics"}
     const linkList: linkTypes[] = [
     {label:"Home", path:"home"},
     {label:"Food Journal", path:"food"},
     {label:"Weight Tracker", path:"weight"}, 
     {label:"Workout Tracker", path:"workout"},
-    {label:"Motivation", path:"motivation"}
+    {label:"Motivation", path:"motivation"},
+    {label:"Metrics", path:"metrics"}
     ]
     return(
         <div className={styles.body}>

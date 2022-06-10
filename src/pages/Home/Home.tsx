@@ -8,13 +8,15 @@ type SelectOption = {label:string; value:string}
 const [cookies, setCookie,removeCookie] = useCookies(['user']);
 const [name, setName] = React.useState<string>("")
 const [height, setHeight] = React.useState<string>("0")
+const [age, setAge] = React.useState<string>("0")
 const [sex, setSex] = React.useState<SelectOption>({label:"",value:""})
 
 const submitUser=()=>{
 let payload = {
     name,
     height,
-    sex:sex.value
+    sex:sex.value,
+    age
 }
 setCookie("user",payload,{path:"/"})
 }
@@ -27,8 +29,9 @@ removeCookie("user")
                 {cookies.user ?
                  <div className={styles.currentUserCard}>
                     <h2>{cookies.user.name}</h2>
-                    <h3>height: {cookies.user.height} inches</h3>
-                    <h3>sex: {cookies.user.sex}</h3>
+                    <h3>Height: {cookies.user.height} inches</h3>
+                    <h3>Age: {cookies.user.age} years</h3>
+                    <h3>Sex: {cookies.user.sex}</h3>
                     <h4>Welcome to Workout Cookies!</h4>
                     <button className={styles.submit} onClick={()=>clearCookies()} > Clear Cookies</button>
                     
@@ -38,6 +41,7 @@ removeCookie("user")
                     <h2>New user form</h2>
                         <input onChange={(e)=>{setName(e.target.value)}} value={name} placeholder="Name..."/>
                         <input onChange={(e)=>setHeight(e.target.value)} value={height} placeholder="Height in inches.." type={"number"}/>
+                        <input onChange={(e)=>setAge(e.target.value)} value={age} placeholder="Age.." type={"number"}/>
                         <Select placeholder="Sex..."  onChange={(e)=>{setSex(e!)}} value={sex} options={[
                             {label:"M",value:"M"},
                             {label:"F",value:"F"},
