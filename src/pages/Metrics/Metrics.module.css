@@ -1,0 +1,16 @@
+.card{
+    background-color: antiquewhite;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+    min-width: 500px;
+    margin-block-start: 10px ;
+    margin-block-end: 10px;
+    margin-inline-start: 10px;
+    margin-inline-end: 10px;
+}
+.container{
+    display: grid;
+    grid-template-columns: auto;
+    gap:20px;
+    justify-content: center;
+}

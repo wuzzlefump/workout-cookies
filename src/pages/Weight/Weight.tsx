@@ -51,7 +51,7 @@ const clearWeightCookies = ()=>{
                             </button>
                         </div>
                     </div>
-                    : <div></div>
+                    : <div className={styles.newUserCard}>Enter Your User information on the home page first</div>
                 }
             </div>)
 }
