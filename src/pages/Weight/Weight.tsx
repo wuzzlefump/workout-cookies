@@ -13,12 +13,12 @@ const [weight,setWeight]=React.useState<string>("")
 const submitWeight =()=>{
     if(weightCookies.weight){
         let newWeight = weight ?? 0
-        let weightObj = {date: new Date().toLocaleDateString(), weight:parseInt(newWeight) }
+        let weightObj = {date: new Date().toLocaleDateString(), weight:parseFloat(newWeight) }
         setWeightCookies("weight",{...weightObj, all:[...weightCookies.weight.all,weightObj]},{path:"/"})
         console.log(weightCookies.weight)
     }else{
         let newWeight = weight ?? 0
-        let weightObj = {date: new Date().toLocaleDateString(), weight:parseInt(newWeight) }
+        let weightObj = {date: new Date().toLocaleDateString(), weight:parseFloat(newWeight) }
         setWeightCookies("weight",{...weightObj, all:[weightObj]},{path:"/"})
         console.log(weightCookies.weight)
     }
