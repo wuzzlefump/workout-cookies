@@ -23,8 +23,8 @@ const submitWeight =()=>{
         console.log(weightCookies.weight)
     }
 }
-const labels = weightCookies.weight ? weightCookies.weight.all.map((time: any, key:number)=>time.date + key.toString()):[]
-const datasets = weightCookies.weight ? [{label: "Weight",data:weightCookies.weight.all.map((item:any)=>item.weight), borderColor:"green", backgroundColor:"green" }]:[]
+const labels = weightCookies.weight ? weightCookies.weight.all.map((time: any, key:number)=>time.date + "("+(key + 1).toString()+")"):[]
+const datasets = weightCookies.weight ? [{label: "Weight (lbs)",data:weightCookies.weight.all.map((item:any)=>item.weight), borderColor:"green", backgroundColor:"green" }]:[]
 const graphData = {labels:labels, datasets:datasets} 
 const clearWeightCookies = ()=>{
     removeWeightCookies("weight")
@@ -34,12 +34,12 @@ const clearWeightCookies = ()=>{
             <div className={styles.container}>
                 {
                     userCookies.user ? <div className={styles.currentUserCard}>
-                        <h1>Hello  {userCookies.user.name}</h1>
+                        <h1>Track Your Weight</h1>
                     <div>
                         {weightCookies.weight ? <Graph
                          options={{plugins:{legend:{position:"bottom" as const},title:{display:true, text:"Weight"}}, responsive:true}}
                          data={graphData}
-                          />: "enter your weight to track it"}
+                          />: "Enter your weight to track it on the graph"}
                           </div>                                    
                         <input placeholder="weight" type={"number"} value={weight} onChange={(e)=> setWeight(e.target.value)} ></input>
                         <div className={styles.actionContainer}>

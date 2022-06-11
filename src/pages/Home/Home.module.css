@@ -44,7 +44,6 @@
 
 }
 .container{
-    height:95vh;
     width:inherit;
     display:grid;
     justify-content: center;

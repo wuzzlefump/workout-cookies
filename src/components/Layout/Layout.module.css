@@ -26,6 +26,7 @@ font-weight: bolder;
 }
 
 .sideNavContent{
+    position:fixed;
     padding-block-start:10px ;
     height: 95vh;
     display: flex;
@@ -36,6 +37,7 @@ font-weight: bolder;
 .sideNavContent button{
  border:none;
  height:40px;
+ width:190px;
  background-color: rgba(218, 255, 218, 0.39);
  cursor: pointer;
 }

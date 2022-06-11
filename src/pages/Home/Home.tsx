@@ -39,9 +39,13 @@ removeCookie("user")
                   :
                 <div className={styles.newUserCard}>
                     <h2>New user form</h2>
+                        <label style={{textAlign:"start"}}>Name</label>
                         <input onChange={(e)=>{setName(e.target.value)}} value={name} placeholder="Name..."/>
+                        <label style={{textAlign:"start"}} >Height</label>
                         <input onChange={(e)=>setHeight(e.target.value)} value={height} placeholder="Height in inches.." type={"number"}/>
+                        <label style={{textAlign:"start"}}>Age</label>
                         <input onChange={(e)=>setAge(e.target.value)} value={age} placeholder="Age.." type={"number"}/>
+                        <label style={{textAlign:"start"}}>Sex</label>
                         <Select placeholder="Sex..."  onChange={(e)=>{setSex(e!)}} value={sex} options={[
                             {label:"M",value:"M"},
                             {label:"F",value:"F"},
