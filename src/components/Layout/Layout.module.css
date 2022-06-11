@@ -1,15 +1,17 @@
 .body{
-    height:100vh
+    height:100vh;
+    overflow:scroll
 }
 
 .header{
 height:5vh;
-background-color:whitesmoke;
+background-color: rgba(218, 255, 218, 0.39);
 box-shadow: 2 2 2 black;
 font-size: larger;
 font-weight: bolder;
 }
 .sideNav{
+    position:sticky;
     background-color:#fefefe;
     height:95vh;
     padding-inline-start: 5px;
@@ -18,14 +20,14 @@ font-weight: bolder;
 .container{
     display: grid;
     grid-template-columns: 200px auto;
-    min-height: 95vh;
-    background-color: gray;
-
+    height: 95vh;
+    background-color: lightgray;
+    overflow: scroll;
 }
 
 .sideNavContent{
     padding-block-start:10px ;
-    min-height: 95vh;
+    height: 95vh;
     display: flex;
     flex-direction: column;
     gap:5px

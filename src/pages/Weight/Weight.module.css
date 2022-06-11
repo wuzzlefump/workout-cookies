@@ -29,7 +29,7 @@
 .currentUserCard{
     margin-top: 10vh;
     background-color: whitesmoke;
-    min-width: 600px;
+    max-width: 600px;
     text-align: center;
     border-radius: 10px;
     min-height: 700px;
@@ -38,11 +38,12 @@
     grid-template-columns: auto;
     padding-inline-start: 10px;
     padding-inline-end:10px;
+    margin-inline-start: 20px;
+    margin-inline-end: 20px;
 }
 .clear{
     height: 40px;
     width:100px;
-    justify-self:end;
     background-color: lightgray;
     border-radius: 5px;
     border-style: solid;
@@ -51,10 +52,9 @@
     cursor: pointer;
     margin-inline-end: 300px;
 }
-.submit{
+.submittwo{
     height: 40px;
     width:100px;
-    justify-self:end;
     background-color: rgba(218, 255, 218, 0.39);
     border-radius: 5px;
     border-style: solid;
@@ -63,8 +63,16 @@
     cursor: pointer;
 }
 .container{
+    height:95vh;
     width:inherit;
     display:grid;
     justify-content: center;
+    overflow: scroll;
 }
 
+.actionContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
