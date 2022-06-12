@@ -24,7 +24,10 @@ const [weightCookies, setWeightCookie] = useCookies(['weight']);
                             Body mass index is away of using height and weight to calculate health risk.
                             <br/>
                             <br/>
-                            Your Current risk is {BMIRisk(parseInt(weightCookies.weight.weight),parseInt(userCookies.user.height))} 
+                            <p>Your Current risk is 
+                            <span style={{fontWeight:"bolder"}}>
+                                {" "+BMIRisk(parseInt(weightCookies.weight.weight),parseInt(userCookies.user.height))}
+                            </span></p>
                             <br/>
                             <br/>
                             ** Note BMI doesnt take into account large amounts of muscle, young children or old age
