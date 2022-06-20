@@ -2,10 +2,12 @@ import * as React from "react"
 import { useCookies } from 'react-cookie';
 import styles from "./Metrics.module.css"
 import BMI,{BMIRisk} from "../../Tools/BMI";
+import findWaterIntake from "../../Tools/WaterIntake";
 
 export default function Metrics(){
 const [userCookies, setUserCookies] = useCookies(['user']);
 const [weightCookies, setWeightCookie] = useCookies(['weight']);
+const [exerciseCookies,setExerciseCookies] = useCookies(["exercise"])
     return(
             <div className={styles.container}>
                 
@@ -32,6 +34,23 @@ const [weightCookies, setWeightCookie] = useCookies(['weight']);
                             <br/>
                             ** Note BMI doesnt take into account large amounts of muscle, young children or old age
                         </Section> : null
+                    }
+                    {
+                        userCookies.user ?
+                        <Section label={"Recommended Water Intake (in Liters)"} value={findWaterIntake(userCookies.user.age, userCookies.user.sex,exerciseCookies.exercise? exerciseCookies.exercise.todaysHours : 0 )}>
+                            Daily water intake changes based off of age, sex, even heat of the day based on the information given we'd recommend drinking this amount today
+                            <br></br>
+                            <a href="https://www.omnicalculator.com/health/water-intake">based off information here</a>
+                        </Section>:null
+                    }
+                    {
+                        weightCookies.weight ? 
+                       <Section label={"Recommended Protein Intake"} value={(weightCookies.weight.weight * .36).toString() + "grams" }>
+                           The Recomended Protein intake for a sedentary adult is .36 times your weight
+                           <br/>
+                           <a href="https://www.health.harvard.edu/blog/how-much-protein-do-you-need-every-day-201506188096">based off information here</a>
+
+                       </Section> :null
                     }
                 </div>
             </div>)
