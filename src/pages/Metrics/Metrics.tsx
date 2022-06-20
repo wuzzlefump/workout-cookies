@@ -38,7 +38,7 @@ const [exerciseCookies,setExerciseCookies] = useCookies(["exercise"])
                     {
                         userCookies.user ?
                         <Section label={"Recommended Water Intake (in Liters)"} value={findWaterIntake(userCookies.user.age, userCookies.user.sex,exerciseCookies.exercise? exerciseCookies.exercise.todaysHours : 0 )}>
-                            Daily water intake changes based off of age, sex, even heat of the day based on the information given we'd recommend drinking this amount today
+                            Daily water intake changes based off of age, sex, even heat of the day based on the information given we'd recommend drinking this amount (including water from food) today
                             <br></br>
                             <a href="https://www.omnicalculator.com/health/water-intake">based off information here</a>
                         </Section>:null
