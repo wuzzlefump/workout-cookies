@@ -12,23 +12,19 @@
     padding-inline-end:10px;
     margin-left: 20px;
     margin-right: 20px;
-    margin-block-end:20px ;
 
 }
 .goalCard2{
-    margin-top: 10vh;
     background-color: whitesmoke;
     min-width: 400px;
     text-align: center;
     border-radius: 10px;
-    min-height: 200px;
     display:grid;
     grid-template-columns: auto;
     padding-inline-start: 10px;
     padding-inline-end:10px;
     margin-left: 20px;
     margin-right: 20px;
-    margin-block-end:20px ;
 
 }
 
@@ -56,7 +52,6 @@
     padding-inline-end:10px;
     margin-left: 20px;
     margin-right: 20px;
-    margin-block-end:20px ;
     font-size: larger;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bolder;
@@ -77,7 +72,6 @@
     padding-inline-end:10px;
     margin-left: 20px;
     margin-right: 20px;
-    margin-block-end:20px ;
     gap:10px
 }
 
@@ -113,4 +107,12 @@
     border-width: 1px;
     cursor: pointer;
 
+}
+.container{
+    display: grid;
+    height: 95vh;
+    overflow: scroll;
+    grid-template-columns: auto;
+    gap:20px;
+    justify-content: center;
 }

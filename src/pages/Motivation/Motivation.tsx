@@ -13,7 +13,6 @@ const [quote,setQuote] = React.useState<string>("")
 const getRandomQuote = (newList:string[])=>{
     const length = newList.length-.1
     let randomInt = (max:number)=> Math.floor(Math.random() * max)
-    console.log(randomInt(length))
     return newList[randomInt(length)]
 }
 const [currentQuote,setCurrentQuote]=React.useState(getRandomQuote(list))
@@ -38,7 +37,7 @@ const setNewGoal =()=>{
     setGoalCookie("goal",goal,{path:"/"})
 }
     return(
-            <div>
+            <div className={styles.container}>
                 <div className={styles.goalCard}>
                     <h3>Goal</h3>
                     {

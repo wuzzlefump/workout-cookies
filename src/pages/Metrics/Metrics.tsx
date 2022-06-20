@@ -8,6 +8,10 @@ export default function Metrics(){
 const [userCookies, setUserCookies] = useCookies(['user']);
 const [weightCookies, setWeightCookie] = useCookies(['weight']);
 const [exerciseCookies,setExerciseCookies] = useCookies(["exercise"])
+const todaysExercises = exerciseCookies.exercise? exerciseCookies.exercise.exerciseList.filter((item:any)=>  item.date === new Date().toLocaleDateString()) : [];
+const durationArr = todaysExercises.map((item:any)=>item.duration)
+const todaysDuration = durationArr.length > 0 ? durationArr.reduce((partialSum:any, a:any) => partialSum + a, 0) : 0
+
     return(
             <div className={styles.container}>
                 
@@ -37,7 +41,7 @@ const [exerciseCookies,setExerciseCookies] = useCookies(["exercise"])
                     }
                     {
                         userCookies.user ?
-                        <Section label={"Recommended Water Intake (in Liters)"} value={findWaterIntake(userCookies.user.age, userCookies.user.sex,exerciseCookies.exercise? exerciseCookies.exercise.todaysHours : 0 )}>
+                        <Section label={"Recommended Water Intake (in Liters)"} value={findWaterIntake(userCookies.user.age, userCookies.user.sex,todaysDuration )}>
                             Daily water intake changes based off of age, sex, even heat of the day based on the information given we'd recommend drinking this amount (including water from food) today
                             <br></br>
                             <a href="https://www.omnicalculator.com/health/water-intake">based off information here</a>
