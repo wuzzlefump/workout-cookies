@@ -47,7 +47,7 @@ const setNewGoal =()=>{
                 <div className={styles.goalCard}>
                     <h3>Goal</h3>
                     {
-                    goalCookies.goal ? <div><p>{goalCookies.goal}</p><button onClick={()=>{removeGoalCookies("goal");showToast("Goal Cookies Removed","info")}}>clear goal</button></div>:
+                    goalCookies.goal ? <div><p>{goalCookies.goal}</p><button onClick={()=>{removeGoalCookies("goal",{path:"/"});showToast("Goal Cookies Removed","info")}}>clear goal</button></div>:
                     <div className={styles.goalCard2}><input value={goal} onChange={(e)=>{setGoal(e.target.value)}} placeholder="Goal"/>
                     <button className={styles.submit}  onClick={()=> setNewGoal()}>set goal</button></div>
                     }
@@ -57,7 +57,7 @@ const setNewGoal =()=>{
                 <div className={styles.addCard}>add Motivation
                     <input value={quote} onChange={(e)=>setQuote(e.target.value)} />
                     <button className={styles.submit}  onClick={()=>addQuote()}> Add Quote</button>
-                    <button className={styles.clear} onClick={()=>{removeQuoteCookie("quote");showToast("Quote Cookies Removed","info")}}>clear homemade quotes</button>
+                    <button className={styles.clear} onClick={()=>{removeQuoteCookie("quote",{path:"/"});showToast("Quote Cookies Removed","info")}}>clear homemade quotes</button>
                 </div>
             </div>)
 }

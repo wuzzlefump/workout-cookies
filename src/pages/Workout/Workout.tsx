@@ -51,7 +51,7 @@ export default function Workout(){
                         <textarea value={exerciseText} onChange={(e)=>setExerciseText(e.target.value)}/>
                         <div className={styles.actionContainer}>
                             <button className={styles.submit} onClick={()=>{submitExercise()}} >Submit</button>
-                            <button className={styles.clear} onClick={()=>{removeExerciseCookies("exercise"); showToast("Exercise Cookies Removed","info")}}>Remove Cookies</button>
+                            <button className={styles.clear} onClick={()=>{removeExerciseCookies("exercise",{path:"/"}); showToast("Exercise Cookies Removed","info")}}>Remove Cookies</button>
                         </div>
                     </div>
                 </div>)

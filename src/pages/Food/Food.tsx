@@ -48,7 +48,7 @@ const submitFood = ()=>{
                     <textarea value={foodText} onChange={(e)=>setFoodText(e.target.value)}/>
                     <div className={styles.actionContainer}>
                         <button className={styles.submit} onClick={()=>{submitFood()}} >Submit</button>
-                        <button className={styles.clear} onClick={()=>{removeFoodCookies("food");showToast("Cookies Removed","info")}}>Remove Food Cookies</button>
+                        <button className={styles.clear} onClick={()=>{removeFoodCookies("food",{path:"/"});showToast("Cookies Removed","info")}}>Remove Food Cookies</button>
                     </div>
                 </div>
             </div>)

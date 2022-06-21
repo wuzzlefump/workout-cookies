@@ -29,7 +29,7 @@ const labels = weightCookies.weight ? weightCookies.weight.all.map((time: any, k
 const datasets = weightCookies.weight ? [{label: "Weight (lbs)",data:weightCookies.weight.all.map((item:any)=>item.weight), borderColor:"green", backgroundColor:"green" }]:[]
 const graphData = {labels:labels, datasets:datasets} 
 const clearWeightCookies = ()=>{
-    removeWeightCookies("weight")
+    removeWeightCookies("weight",{path:"/"})
     showToast("Weight Cookies Removed","info")
 }
 

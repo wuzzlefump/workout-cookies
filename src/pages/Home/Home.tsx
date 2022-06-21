@@ -24,7 +24,7 @@ setCookie("user",payload,{path:"/"})
 showToast("Info Submitted","success")
 }
 const clearCookies=()=>{
-removeCookie("user")
+removeCookie("user",{path:"/"})
 showToast("Cookies Removed", "info")
 }
 
