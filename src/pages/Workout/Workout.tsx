@@ -3,6 +3,8 @@ import { useCookies } from 'react-cookie';
 import DatePicker from "react-datepicker";
 import styles from "./Workout.module.css"
 import "react-datepicker/dist/react-datepicker.css";
+import showToast from "../../components/showToast/showToast";
+import { ToastContainer } from "react-toastify";
 
 
 export default function Workout(){
@@ -14,14 +16,16 @@ export default function Workout(){
         let exerciseObj = {date:startDate.toLocaleDateString(undefined,{}), exercise:exerciseText, duration:duration? parseInt(duration): 0 }
         if(exerciseCookies.exercise){
             setExerciseCookie("exercise",{...exerciseObj, exerciseList:[...exerciseCookies.exercise.exerciseList,exerciseObj]},{path:"/"})
+            showToast("Exercise Submitted","success")
         }else{
-            
             setExerciseCookie("exercise",{...exerciseObj, exerciseList:[exerciseObj]},{path:"/"})
+            showToast("Exercise Submitted","success")
         }
     }
     
         return(
                 <div className={styles.container}>
+                    <ToastContainer/>
                     <div className={styles.headerCard}>
                     <h3 style={{marginBottom:"40px"}}>Choose Day to look at : {startDate.toLocaleDateString()}</h3>
                     <DatePicker value={startDate} onChange={(date:any)=>{ setStartDate(date)}}></DatePicker>
@@ -47,7 +51,7 @@ export default function Workout(){
                         <textarea value={exerciseText} onChange={(e)=>setExerciseText(e.target.value)}/>
                         <div className={styles.actionContainer}>
                             <button className={styles.submit} onClick={()=>{submitExercise()}} >Submit</button>
-                            <button className={styles.clear} onClick={()=>removeExerciseCookies("exercise")}>Remove Cookies</button>
+                            <button className={styles.clear} onClick={()=>{removeExerciseCookies("exercise"); showToast("Exercise Cookies Removed","info")}}>Remove Cookies</button>
                         </div>
                     </div>
                 </div>)

@@ -2,6 +2,8 @@ import * as React from "react"
 import { useCookies } from 'react-cookie';
 import styles from "./Home.module.css"
 import Select from "react-select"; 
+import { ToastContainer } from "react-toastify";
+import showToast from "../../components/showToast/showToast";
 
 export default function Home(){
 type SelectOption = {label:string; value:string}
@@ -19,13 +21,16 @@ let payload = {
     age
 }
 setCookie("user",payload,{path:"/"})
+showToast("Info Submitted","success")
 }
 const clearCookies=()=>{
 removeCookie("user")
+showToast("Cookies Removed", "info")
 }
 
     return(
             <div className={styles.container}>
+                <ToastContainer/>
                 {cookies.user ?
                  <div className={styles.currentUserCard}>
                     <h2>{cookies.user.name}</h2>

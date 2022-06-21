@@ -32,7 +32,7 @@
     min-width: 400px;
     text-align: center;
     border-radius: 10px;
-    min-height: 700px;
+    min-height: 300px;
     box-shadow:5px 5px 5px black;
     display:grid;
     grid-template-columns: auto;
@@ -70,7 +70,7 @@
     min-width: 400px;
     text-align: center;
     border-radius: 10px;
-    height: 700px;
+    height: 400px;
     overflow: scroll;
     box-shadow:5px 5px 5px black;
     padding-inline-start: 10px;

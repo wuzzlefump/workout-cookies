@@ -2,6 +2,8 @@ import * as React from "react"
 import styles from "./Weight.module.css"
 import { useCookies } from 'react-cookie';
 import Graph from "../../components/Graph/Graph";
+import showToast from "../../components/showToast/showToast";
+import { ToastClassName, ToastContainer } from "react-toastify";
 
 const moment = require("moment")
 
@@ -15,12 +17,12 @@ const submitWeight =()=>{
         let newWeight = weight ?? 0
         let weightObj = {date: new Date().toLocaleDateString(), weight:parseFloat(newWeight) }
         setWeightCookies("weight",{...weightObj, all:[...weightCookies.weight.all,weightObj]},{path:"/"})
-        console.log(weightCookies.weight)
+        showToast("Weight Submitted","success")
     }else{
         let newWeight = weight ?? 0
         let weightObj = {date: new Date().toLocaleDateString(), weight:parseFloat(newWeight) }
         setWeightCookies("weight",{...weightObj, all:[weightObj]},{path:"/"})
-        console.log(weightCookies.weight)
+        showToast("Weight Submitted","success")
     }
 }
 const labels = weightCookies.weight ? weightCookies.weight.all.map((time: any, key:number)=>time.date + "("+(key + 1).toString()+")"):[]
@@ -28,10 +30,12 @@ const datasets = weightCookies.weight ? [{label: "Weight (lbs)",data:weightCooki
 const graphData = {labels:labels, datasets:datasets} 
 const clearWeightCookies = ()=>{
     removeWeightCookies("weight")
+    showToast("Weight Cookies Removed","info")
 }
 
     return(
             <div className={styles.container}>
+                <ToastContainer/>
                 {
                     userCookies.user ? <div className={styles.currentUserCard}>
                         <h1>Track Your Weight</h1>

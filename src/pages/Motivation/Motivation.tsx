@@ -2,6 +2,8 @@ import * as React from "react"
 import Layout from "../../components/Layout/Layout"
 import { useCookies } from 'react-cookie';
 import styles from "./Motivation.module.css"
+import showToast from "../../components/showToast/showToast";
+import { ToastContainer } from "react-toastify";
 const list = require("./motivation.json")
 export default function Motivation(){
 const [cookies, setCookie] = useCookies(['user']);
@@ -27,21 +29,25 @@ const addQuote = ()=>{
     if(quoteCookies.quote){
         setQuoteCookie("quote",{quoteList:[...quoteCookies.quote.quoteList,`${quote} -yourself`]})
         setQuote("")
+        showToast("Quote Submitted","success")
     }else{
         setQuoteCookie("quote",{quoteList:[`${quote} -yourself}`]})
         setQuote("")
+        showToast("Quote Submitted","success")
     }
 }
 
 const setNewGoal =()=>{
     setGoalCookie("goal",goal,{path:"/"})
+    showToast("Goal Set", "success")
 }
     return(
             <div className={styles.container}>
+                <ToastContainer/>
                 <div className={styles.goalCard}>
                     <h3>Goal</h3>
                     {
-                    goalCookies.goal ? <div><p>{goalCookies.goal}</p><button onClick={()=>removeGoalCookies("goal")}>clear goal</button></div>:
+                    goalCookies.goal ? <div><p>{goalCookies.goal}</p><button onClick={()=>{removeGoalCookies("goal");showToast("Goal Cookies Removed","info")}}>clear goal</button></div>:
                     <div className={styles.goalCard2}><input value={goal} onChange={(e)=>{setGoal(e.target.value)}} placeholder="Goal"/>
                     <button className={styles.submit}  onClick={()=> setNewGoal()}>set goal</button></div>
                     }
@@ -51,7 +57,7 @@ const setNewGoal =()=>{
                 <div className={styles.addCard}>add Motivation
                     <input value={quote} onChange={(e)=>setQuote(e.target.value)} />
                     <button className={styles.submit}  onClick={()=>addQuote()}> Add Quote</button>
-                    <button className={styles.clear} onClick={()=>removeQuoteCookie("quote")}>clear homemade quotes</button>
+                    <button className={styles.clear} onClick={()=>{removeQuoteCookie("quote");showToast("Quote Cookies Removed","info")}}>clear homemade quotes</button>
                 </div>
             </div>)
 }
