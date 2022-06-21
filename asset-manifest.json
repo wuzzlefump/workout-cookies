@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/workout-cookies/static/css/main.e76e01ca.css",
-    "main.js": "/workout-cookies/static/js/main.100f102f.js",
+    "main.js": "/workout-cookies/static/js/main.4db9059f.js",
     "static/js/787.98222c0b.chunk.js": "/workout-cookies/static/js/787.98222c0b.chunk.js",
     "index.html": "/workout-cookies/index.html",
     "main.e76e01ca.css.map": "/workout-cookies/static/css/main.e76e01ca.css.map",
-    "main.100f102f.js.map": "/workout-cookies/static/js/main.100f102f.js.map",
+    "main.4db9059f.js.map": "/workout-cookies/static/js/main.4db9059f.js.map",
     "787.98222c0b.chunk.js.map": "/workout-cookies/static/js/787.98222c0b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e76e01ca.css",
-    "static/js/main.100f102f.js"
+    "static/js/main.4db9059f.js"
   ]
 }
