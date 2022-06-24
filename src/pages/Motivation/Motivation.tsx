@@ -4,6 +4,7 @@ import { useCookies } from 'react-cookie';
 import styles from "./Motivation.module.css"
 import showToast from "../../components/showToast/showToast";
 import { ToastContainer } from "react-toastify";
+import neverExpire from "../../Tools/NeverExpire";
 const list = require("./motivation.json")
 export default function Motivation(){
 const [cookies, setCookie] = useCookies(['user']);
@@ -27,18 +28,18 @@ const nextQuote =()=>{
 }
 const addQuote = ()=>{
     if(quoteCookies.quote){
-        setQuoteCookie("quote",{quoteList:[...quoteCookies.quote.quoteList,`${quote} -yourself`]})
+        setQuoteCookie("quote",{quoteList:[...quoteCookies.quote.quoteList,`${quote} -yourself`]}, {path:"/",maxAge:neverExpire()})
         setQuote("")
         showToast("Quote Submitted","success")
     }else{
-        setQuoteCookie("quote",{quoteList:[`${quote} -yourself}`]})
+        setQuoteCookie("quote",{quoteList:[`${quote} -yourself}`]},{path:"/",maxAge:neverExpire()})
         setQuote("")
         showToast("Quote Submitted","success")
     }
 }
 
 const setNewGoal =()=>{
-    setGoalCookie("goal",goal,{path:"/"})
+    setGoalCookie("goal",goal,{path:"/", maxAge:neverExpire()})
     showToast("Goal Set", "success")
 }
     return(

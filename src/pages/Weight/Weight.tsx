@@ -4,6 +4,7 @@ import { useCookies } from 'react-cookie';
 import Graph from "../../components/Graph/Graph";
 import showToast from "../../components/showToast/showToast";
 import { ToastClassName, ToastContainer } from "react-toastify";
+import neverExpire from "../../Tools/NeverExpire";
 
 const moment = require("moment")
 
@@ -16,12 +17,12 @@ const submitWeight =()=>{
     if(weightCookies.weight){
         let newWeight = weight ?? 0
         let weightObj = {date: new Date().toLocaleDateString(), weight:parseFloat(newWeight) }
-        setWeightCookies("weight",{...weightObj, all:[...weightCookies.weight.all,weightObj]},{path:"/"})
+        setWeightCookies("weight",{...weightObj, all:[...weightCookies.weight.all,weightObj]},{path:"/",maxAge:neverExpire()})
         showToast("Weight Submitted","success")
     }else{
         let newWeight = weight ?? 0
         let weightObj = {date: new Date().toLocaleDateString(), weight:parseFloat(newWeight) }
-        setWeightCookies("weight",{...weightObj, all:[weightObj]},{path:"/"})
+        setWeightCookies("weight",{...weightObj, all:[weightObj]},{path:"/",maxAge:neverExpire()})
         showToast("Weight Submitted","success")
     }
 }

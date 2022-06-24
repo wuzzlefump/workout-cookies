@@ -5,6 +5,7 @@ import styles from "./Food.module.css"
 import "react-datepicker/dist/react-datepicker.css";
 import showToast from "../../components/showToast/showToast";
 import { ToastContainer } from "react-toastify";
+import neverExpire from "../../Tools/NeverExpire";
 
 
 export default function Food(){
@@ -14,11 +15,11 @@ const [foodText, setFoodText] = React.useState<string>("")
 const submitFood = ()=>{
     let foodObj = {date:startDate.toLocaleDateString(undefined,{}), food:foodText}
     if(foodCookies.food){
-        setFoodCookie("food",{...foodObj, foodList:[...foodCookies.food.foodList,foodObj]},{path:"/"})
+        setFoodCookie("food",{...foodObj, foodList:[...foodCookies.food.foodList,foodObj]},{path:"/", maxAge:neverExpire()})
         showToast("Food Submitted","success")
     }else{
         
-        setFoodCookie("food",{...foodObj, foodList:[foodObj]},{path:"/"})
+        setFoodCookie("food",{...foodObj, foodList:[foodObj]},{path:"/", maxAge:neverExpire()})
         showToast("Food Submitted","success")
     }
 }

@@ -4,6 +4,7 @@ import styles from "./Home.module.css"
 import Select from "react-select"; 
 import { ToastContainer } from "react-toastify";
 import showToast from "../../components/showToast/showToast";
+import neverExpire from "../../Tools/NeverExpire";
 
 export default function Home(){
 type SelectOption = {label:string; value:string}
@@ -20,7 +21,7 @@ let payload = {
     sex:sex.value,
     age
 }
-setCookie("user",payload,{path:"/"})
+setCookie("user",payload,{path:"/", maxAge:neverExpire()})
 showToast("Info Submitted","success")
 }
 const clearCookies=()=>{

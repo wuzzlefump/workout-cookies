@@ -5,6 +5,7 @@ import styles from "./Workout.module.css"
 import "react-datepicker/dist/react-datepicker.css";
 import showToast from "../../components/showToast/showToast";
 import { ToastContainer } from "react-toastify";
+import neverExpire from "../../Tools/NeverExpire";
 
 
 export default function Workout(){
@@ -15,10 +16,10 @@ export default function Workout(){
     const submitExercise = ()=>{
         let exerciseObj = {date:startDate.toLocaleDateString(undefined,{}), exercise:exerciseText, duration:duration? parseInt(duration): 0 }
         if(exerciseCookies.exercise){
-            setExerciseCookie("exercise",{...exerciseObj, exerciseList:[...exerciseCookies.exercise.exerciseList,exerciseObj]},{path:"/"})
+            setExerciseCookie("exercise",{...exerciseObj, exerciseList:[...exerciseCookies.exercise.exerciseList,exerciseObj]},{path:"/",maxAge:neverExpire()})
             showToast("Exercise Submitted","success")
         }else{
-            setExerciseCookie("exercise",{...exerciseObj, exerciseList:[exerciseObj]},{path:"/"})
+            setExerciseCookie("exercise",{...exerciseObj, exerciseList:[exerciseObj]},{path:"/",maxAge:neverExpire()})
             showToast("Exercise Submitted","success")
         }
     }
