@@ -21,7 +21,7 @@ let payload = {
     sex:sex.value,
     age
 }
-setCookie("user",payload,{path:"/", maxAge:neverExpire()})
+setCookie("user",payload,{path:"/", maxAge:999999999999999999999})
 showToast("Info Submitted","success")
 }
 const clearCookies=()=>{
